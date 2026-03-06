@@ -8,7 +8,7 @@ from collections import defaultdict
 app = FastAPI()
 
 # CORS Configuration
-origins = ["http://localhost:5173"]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,

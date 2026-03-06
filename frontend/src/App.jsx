@@ -17,7 +17,7 @@ function App() {
   const [budgetInput, setBudgetInput] = useState(20000);
   const [budgetMessage, setBudgetMessage] = useState("");
 
-  const API_URL = "http://127.0.0.1:8000";
+  const API_URL = "https://smart-expense-analytics-dashboard.onrender.com";
 
   const handleSaveBudget = () => {
     const newBudget = Number(budgetInput);
