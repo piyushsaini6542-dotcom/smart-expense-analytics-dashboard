@@ -189,17 +189,19 @@ function App() {
             </p>
           )}
         </div>
+        
+        {/* Analytics */}
+        <AnalyticsDashboard
+          expenses={filteredExpenses}
+          monthlyBudget={monthlyBudget}
+        />
 
         {/* Summary Cards */}
         <div style={{ marginBottom: "50px" }}>
           <SummaryCards expenses={filteredExpenses} />
         </div>
 
-        {/* Analytics */}
-        <AnalyticsDashboard
-          expenses={filteredExpenses}
-          monthlyBudget={monthlyBudget}
-        />
+        
 
         {/* Charts */}
         <div
