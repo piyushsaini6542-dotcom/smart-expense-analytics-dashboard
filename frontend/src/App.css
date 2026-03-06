@@ -1,0 +1,28 @@
+/* Full-page gradient background */
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: radial-gradient(
+      circle at top left,
+      #eef2ff 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      #e0f2fe 0%,
+      transparent 40%
+    ),
+    #f8fafc;
+}
+
+/* Let React app take full height */
+#root {
+  min-height: 100vh;
+}
+
+/* Remove old Vite demo styles */
+.logo,
+.card,
+.read-the-docs {
+  display: none;
+}
