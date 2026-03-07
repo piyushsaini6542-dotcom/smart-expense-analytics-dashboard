@@ -83,16 +83,17 @@ function App() {
         width: "100%",
         display: "flex",
         justifyContent: "center",
-        padding: "50px 20px",
+        padding: "clamp(20px, 5vw, 50px) clamp(12px, 4vw, 20px)", // ✅ responsive padding
+        boxSizing: "border-box",
       }}
     >
       <div style={{ width: "100%", maxWidth: "1100px" }}>
 
         {/* Header */}
-        <div style={{ marginBottom: "40px" }}>
+        <div style={{ marginBottom: "clamp(20px, 5vw, 40px)" }}>
           <h1
             style={{
-              fontSize: "42px",
+              fontSize: "clamp(24px, 6vw, 42px)",   // ✅ responsive font
               fontWeight: "800",
               letterSpacing: "-1px",
               color: "#0f172a",
@@ -101,14 +102,12 @@ function App() {
             }}
           >
             Smart Expense Tracker{" "}
-            <span style={{ color: "#6366f1" }}>
-              Dashboard
-            </span>
+            <span style={{ color: "#6366f1" }}>Dashboard</span>
           </h1>
 
           <p
             style={{
-              fontSize: "17px",
+              fontSize: "clamp(14px, 3vw, 17px)",   // ✅ responsive font
               color: "#475569",
             }}
           >
@@ -126,6 +125,8 @@ function App() {
             borderRadius: "10px",
             boxShadow: "0 6px 18px rgba(0,0,0,0.05)",
             maxWidth: "420px",
+            boxSizing: "border-box",   // ✅ fix
+            width: "100%",
           }}
         >
           <div
@@ -136,21 +137,14 @@ function App() {
               gap: "12px",
             }}
           >
-            <span
-              style={{
-                fontWeight: "600",
-                color: "#0f172a",
-              }}
-            >
+            <span style={{ fontWeight: "600", color: "#0f172a" }}>
               💰 Monthly Budget
             </span>
 
             <input
               type="number"
               value={budgetInput}
-              onChange={(e) =>
-                setBudgetInput(e.target.value)
-              }
+              onChange={(e) => setBudgetInput(e.target.value)}
               style={{
                 padding: "6px 10px",
                 borderRadius: "6px",
@@ -175,7 +169,6 @@ function App() {
             </button>
           </div>
 
-          {/* Budget Confirmation Message */}
           {budgetMessage && (
             <p
               style={{
@@ -201,12 +194,11 @@ function App() {
           monthlyBudget={monthlyBudget}
         />
 
-        {/* Charts */}
+        {/* Charts — FIXED for mobile */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit, minmax(350px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",  // ✅ 280px instead of 350px
             gap: "25px",
             marginBottom: "60px",
           }}
@@ -230,8 +222,7 @@ function App() {
               color: "#fff",
               fontWeight: "600",
               cursor: "pointer",
-              boxShadow:
-                "0 6px 15px rgba(99, 102, 241, 0.3)",
+              boxShadow: "0 6px 15px rgba(99, 102, 241, 0.3)",
             }}
           >
             {showForm ? "Close Form" : "+ Add Expense"}
@@ -255,9 +246,7 @@ function App() {
         <div style={{ marginBottom: "20px" }}>
           <select
             value={selectedMonth}
-            onChange={(e) =>
-              setSelectedMonth(e.target.value)
-            }
+            onChange={(e) => setSelectedMonth(e.target.value)}
             style={{
               padding: "8px 12px",
               borderRadius: "6px",
