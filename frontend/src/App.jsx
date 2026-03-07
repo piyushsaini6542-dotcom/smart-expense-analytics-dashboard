@@ -85,6 +85,7 @@ function App() {
         justifyContent: "center",
         padding: "clamp(20px, 5vw, 50px) clamp(12px, 4vw, 20px)", // ✅ responsive padding
         boxSizing: "border-box",
+        overflowX: "hidden",   // ✅ kills sideways page scroll on mobile
       }}
     >
       <div style={{ width: "100%", maxWidth: "1100px" }}>
